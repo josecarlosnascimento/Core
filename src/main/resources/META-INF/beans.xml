@@ -4,9 +4,9 @@
        version="1.2" bean-discovery-mode="all">
        
        <interceptors>
-       	<class>
-      		br.com.base.core.JdbcInterceptor
-      	</class>
+	       	<class>
+	      		br.com.base.core.JdbcInterceptor
+	      	</class>
        </interceptors>
        
 </beans>
