@@ -1,13 +1,10 @@
 package br.com.base.core;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.logging.Logger;
 
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
 
 public class ConnectionFactory {
 	
