@@ -6,10 +6,10 @@ import org.junit.Test;
 
 import br.com.base.service.PessoaService;
 
-public class PessoaTest {
+public class PessoaServiceTest {
 	
 	@Test
-	public void inserirPessoa() {
+	public void pesquisarPessoa() {
 		
 		Weld weld = new Weld();
 		WeldContainer weldContainer = weld.initialize();

@@ -24,7 +24,7 @@ public class PessoaRepository extends JdbcConnection {
 			rs = ps.executeQuery();
 			
 			while (rs.next()) {
-				System.out.println(rs.getString("nome"));
+//				System.out.println(rs.getString("nome"));
 			}
 			
 		} catch (SQLException e) {
