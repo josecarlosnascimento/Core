@@ -8,7 +8,7 @@ import javax.interceptor.Interceptor;
 import javax.interceptor.InvocationContext;
 
 @Interceptor
-@JdbcConnection
+@Transactional
 public class JdbcInterceptor {
 	
 	@Inject

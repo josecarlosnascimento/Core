@@ -16,7 +16,7 @@ public class PessoaTest {
 		
 		PessoaService ps =  weldContainer.instance().select(PessoaService.class).get();
 		
-		ps.insert(null);
+		ps.pesquisarPessoa();
 	}
 
 

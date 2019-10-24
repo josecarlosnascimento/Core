@@ -1,6 +1,8 @@
 package br.com.base.repository;
 
-import br.com.base.model.Pessoa;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class PessoaRepository extends JdbcConnection {
 
@@ -8,9 +10,26 @@ public class PessoaRepository extends JdbcConnection {
 		System.out.println("PessoaRepository");
 	}
 	
-	public void insert(Pessoa pessoa) {
+	public void pesquisarPessoa() {
 		
-		abrirConexao();
+		StringBuilder sql = new StringBuilder();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		
+
+		sql.append("SELECT nome, logradouro, numero, complemento, bairro, cep, ativo FROM pessoa");
+		
+		try {
+			ps = conexao().prepareStatement(sql.toString());
+			rs = ps.executeQuery();
+			
+			while (rs.next()) {
+				System.out.println(rs.getString("nome"));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 

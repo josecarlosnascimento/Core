@@ -6,15 +6,14 @@ import java.sql.SQLException;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
 
-public class ConnectionFactory {
+public class ConnectionProducer {
 	
 	static {
-		System.out.println("ConnectionFactory");
+		System.out.println("ConnectionProducer");
 	}
 	
 	
 	@Produces
-	@JdbcConnection
 	public Connection getConnection() throws SQLException {
 		
 		Connection connection = DataBaseConnector.getMySQLDataSource().getConnection();
@@ -22,8 +21,9 @@ public class ConnectionFactory {
 		
 	}
 	
-	private void closeConnection(@Disposes @JdbcConnection Connection connection) throws SQLException {
-		connection.close();
+	private void closeConnection(@Disposes @Transactional Connection connection) throws SQLException {
+		System.out.println("Comitando transação");
+		connection.commit();
 	}
 
 }

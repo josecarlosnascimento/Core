@@ -13,7 +13,7 @@ public class JdbcConnection {
 	@Inject
 	private Connection conn;
 	
-	public Connection abrirConexao() {
+	public Connection conexao() {
 		return conn;
 	}
 

@@ -10,6 +10,6 @@ import javax.interceptor.InterceptorBinding;
 @InterceptorBinding
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER, ElementType.TYPE})
-public @interface JdbcConnection {
+public @interface Transactional {
 
 }
