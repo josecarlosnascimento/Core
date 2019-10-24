@@ -2,18 +2,11 @@ package br.com.base.core;
 
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.logging.Logger;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
-import javax.inject.Inject;
 
-@ApplicationScoped
 public class ConnectionProducer {
-	
-	@Inject
-	private Logger logger;
 	
 	static {
 		System.out.println("ConnectionProducer");
@@ -24,14 +17,15 @@ public class ConnectionProducer {
 	public Connection getConnection() throws SQLException {
 		
 		Connection connection = DataBaseConnector.getMySQLDataSource().getConnection();
+		connection.setAutoCommit(false);
 		return connection;
 		
 	}
 	
-	public void closeConnection(@Disposes Connection connection) {
-		System.out.println("Comitando transação");
+	public void closeConnection(@Disposes Connection conn) {
+		System.out.println("Fechando transação");
 		try {
-			connection.commit();
+			conn.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

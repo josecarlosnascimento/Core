@@ -34,8 +34,8 @@ public class JdbcInterceptor {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}finally {
-			System.out.println("Fechando conexão");
-			conn.close();
+			System.out.println("Commitando transação");
+			conn.commit();
 		}
 		return null;
 	}
